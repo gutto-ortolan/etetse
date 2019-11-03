@@ -6,6 +6,11 @@ package escalonamento;
  */
 public class SomaDistancias {
     
+    private static Integer numeroInteiroPositivo(Integer n1, Integer n2){
+        Integer numeroInteiro = Math.abs(n1 - n2);
+        return numeroInteiro;
+    }
+    
     public static Integer soma(Integer inicial, Integer numeros[]){
         Integer verificador = numeros.length - 1;
         Integer total = numeroInteiroPositivo(inicial, numeros[0]);
@@ -21,11 +26,6 @@ public class SomaDistancias {
         System.out.println("Soma das distâncias: "+total+"\n=========================================================\n");
         
         return total;
-    }
-    
-    private static Integer numeroInteiroPositivo(Integer n1, Integer n2){
-        Integer numeroInteiro = Math.abs(n1 - n2);
-        return numeroInteiro;
     }
     
 }

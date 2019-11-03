@@ -38,6 +38,8 @@ public class Principal {
 
         //Monta a lista dos números inseridos em STRING.
         List<String> numerosInseridos;
+        
+        //Split separa a String inserida pelo separador(;) e coloca em uma lista, usando um método da GOOGLE.
         numerosInseridos = Arrays.asList(ordem.split(";"));
 
         //Monta a lista dos números inseridos em INTEGER.
@@ -69,6 +71,7 @@ public class Principal {
 
         //Transfere os dados da list para um ArrayList de Integer.
         elementos = new Integer[listaElementos.size()];
+        
         for (int i = 0; i < listaElementos.size(); i++) {
             elementos[i] = listaElementos.get(i);
         }
@@ -81,80 +84,75 @@ public class Principal {
     }
 
     public void escalonadorSSTF() {
-        EscalonadorSSTF escalonadorSSTF;
-
         //Transfere os dados da list para um ArrayList de Integer.
         elementos = new Integer[listaElementos.size()];
+        
         for (int i = 0; i < listaElementos.size(); i++) {
             elementos[i] = listaElementos.get(i);
         }
 
         //Passa a lista dos elementos e o número inicial para o construtor da classe do escalonamento.
-        escalonadorSSTF = new EscalonadorSSTF(nrInicial, elementos);
+       EscalonadorSSTF escalonadorSSTF = new EscalonadorSSTF(nrInicial, elementos);
 
         //Chama o método que faz todo o processo de montagem e soma da lista.
         escalonadorSSTF.processoSstf();
     }
 
     public void escalonadorSCAN() {
-        EscanoladorSCAN escanoladorSCAN;
-
         //Transfere os dados da list para um ArrayList de Integer.
         elementos = new Integer[listaElementos.size()];
+        
         for (int i = 0; i < listaElementos.size(); i++) {
             elementos[i] = listaElementos.get(i);
         }
 
         //Passa a lista dos elementos e o número inicial para o construtor da classe do escalonamento.
-        escanoladorSCAN = new EscanoladorSCAN(nrInicial, elementos);
+        EscanoladorSCAN escanoladorSCAN = new EscanoladorSCAN(nrInicial, elementos);
 
         //Chama o método que faz todo o processo de montagem e soma da lista.
         escanoladorSCAN.processoScan();
     }
 
     public void escalonadorCSCAN() {
-        EscalonadorCSCAN escalonadorCSCAN;
-
         //Transfere os dados da list para um ArrayList de Integer.
         elementos = new Integer[listaElementos.size()];
+        
         for (int i = 0; i < listaElementos.size(); i++) {
             elementos[i] = listaElementos.get(i);
         }
 
         //Passa a lista dos elementos e o número inicial para o construtor da classe do escalonamento.
-        escalonadorCSCAN = new EscalonadorCSCAN(nrInicial, elementos, limiteDisco);
+        EscalonadorCSCAN escalonadorCSCAN = new EscalonadorCSCAN(nrInicial, elementos, limiteDisco);
 
         //Chama o método que faz todo o processo de montagem e soma da lista.
         escalonadorCSCAN.processoCscan();
     }
 
     public void escalonadorLOOK() {
-        EscalonadorLOOK escalonadorLOOK;
-
         //Transfere os dados da list para um ArrayList de Integer.
         elementos = new Integer[listaElementos.size()];
+        
         for (int i = 0; i < listaElementos.size(); i++) {
             elementos[i] = listaElementos.get(i);
         }
 
         //Passa a lista dos elementos e o número inicial para o construtor da classe do escalonamento.
-        escalonadorLOOK = new EscalonadorLOOK(nrInicial, elementos);
+        EscalonadorLOOK escalonadorLOOK = new EscalonadorLOOK(nrInicial, elementos);
 
         //Chama o método que faz todo o processo de montagem e soma da lista.
         escalonadorLOOK.processoLook();
     }
 
     public void escalonadorCLOOK() {
-        EscalonadorCLOOK escalonadorLOOK;
-
         //Transfere os dados da list para um ArrayList de Integer.
         elementos = new Integer[listaElementos.size()];
+        
         for (int i = 0; i < listaElementos.size(); i++) {
             elementos[i] = listaElementos.get(i);
         }
 
         //Passa a lista dos elementos e o número inicial para o construtor da classe do escalonamento.
-        escalonadorLOOK = new EscalonadorCLOOK(nrInicial, elementos);
+        EscalonadorCLOOK escalonadorLOOK = new EscalonadorCLOOK(nrInicial, elementos);
 
         //Chama o método que faz todo o processo de montagem e soma da lista.
         escalonadorLOOK.processoClook();
@@ -188,6 +186,7 @@ public class Principal {
          */
 
         verificaLista();
+        
         OUTER:
         for (int i = 0; i < 20; i++) {
             Scanner a = new Scanner(System.in);
@@ -204,7 +203,9 @@ public class Principal {
                         + "\n5- LOOK"
                         + "\n6- CLOOK"
                         + "\n\nDigite o número: ");
+                
                 String comando = a.nextLine();
+                
                 switch (comando) {
                     case "1":
                         escalonadorFCFS();
@@ -235,8 +236,10 @@ public class Principal {
                     + "\n1- SIM"
                     + "\n2- NÃO"
                     + "\nDigite o número: ");
+            
             Scanner b = new Scanner(System.in);
             String resposta = b.nextLine();
+            
             switch (resposta) {
                 case "1":
                     i++;
@@ -253,9 +256,11 @@ public class Principal {
                     
                     t.sleep(10000);
                     System.exit(0);
+                    
                     break OUTER;
                 default:
                     System.out.println("Resposta inválida!");
+                    
                     break OUTER;
             }
         }
@@ -263,7 +268,8 @@ public class Principal {
 
     private void daNota() throws IOException {
         try {
-            java.awt.Desktop.getDesktop().browse(new java.net.URI("https://ava.imed.edu.br/avalogin/Login.aspx?ReturnUrl=%2Favalogin"));
+            java.awt.Desktop.getDesktop().browse(
+                    new java.net.URI("https://ava.imed.edu.br/avalogin/Login.aspx?ReturnUrl=%2Favalogin"));
         } catch (URISyntaxException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
